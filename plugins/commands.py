@@ -52,18 +52,10 @@ async def start(client, message):
             await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, temp.B_NAME))
         if len(message.command) != 2:
             buttons = [[
-                        InlineKeyboardButton('☆ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ☆', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
-                    ],[
-                        InlineKeyboardButton('📚 ʙᴀᴄᴋᴜᴘ', url=CHNL_LNK),
-                        InlineKeyboardButton('🌿 ɢʀᴏᴜᴘ', url=GRP_LNK),
-                        InlineKeyboardButton('🌈 ᴄʜᴀɴɴᴇʟ', url=f'http://t.me/The_Happy_Hour_Hindi')
-                    ],[
-                        InlineKeyboardButton('🏕️ ᴀʙᴏᴜᴛ', callback_data='about'),
-                        InlineKeyboardButton('🍾 ᴄᴏᴍᴍᴀɴᴅꜱ', callback_data='seeplans'),
-                        InlineKeyboardButton('🍁 ꜱᴛᴀᴛꜱ', callback_data='stats')
-                    ],[
-                        InlineKeyboardButton('🌹 ʀᴇғғᴇʀ 🌹', callback_data='reffer')
-                        ]]
+                        InlineKeyboardButton('The Happy Hour️ 🌿', url=CHNL_LNK),
+
+InlineKeyboardButton('The Happy Hour 🇮🇳', url=f'http://t.me/The_Happy_Hour_Hindi')
+                    ]]
             if IS_VERIFY or IS_SHORTLINK is True:
                 buttons.append([
                     InlineKeyboardButton('🏡 ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🏡', callback_data='seeplans')
@@ -103,18 +95,10 @@ async def start(client, message):
             return
         if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
             buttons = [[
-                        InlineKeyboardButton('☆ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ☆', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
-                    ],[
-                        InlineKeyboardButton('📚 ʙᴀᴄᴋᴜᴘ', url=CHNL_LNK),
-                        InlineKeyboardButton('🌿 ɢʀᴏᴜᴘ', url=GRP_LNK),
-                        InlineKeyboardButton('🌈 ᴄʜᴀɴɴᴇʟ', url=f'http://t.me/The_Happy_Hour_Hindi')
-                    ],[
-                        InlineKeyboardButton('🏕️ ᴀʙᴏᴜᴛ', callback_data='about'),
-                        InlineKeyboardButton('🍾 ᴄᴏᴍᴍᴀɴᴅꜱ', callback_data='seeplans'),
-                        InlineKeyboardButton('🍁 ꜱᴛᴀᴛꜱ', callback_data='stats')
-                    ],[
-                        InlineKeyboardButton('🌹 ʀᴇғғᴇʀ 🌹', callback_data='reffer'),
-                        ]]
+                        InlineKeyboardButton('The Happy Hour️ 🌿', url=CHNL_LNK),
+
+InlineKeyboardButton('The Happy Hour 🇮🇳', url=f'http://t.me/The_Happy_Hour_Hindi')
+                    ]]
             if IS_VERIFY or IS_SHORTLINK is True:
                 buttons.append([
                     InlineKeyboardButton('🏡 ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🏡', callback_data='seeplans')
