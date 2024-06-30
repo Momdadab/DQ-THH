@@ -1338,10 +1338,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons.append([
                     InlineKeyboardButton('🏡 ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🏡', callback_data='seeplans')
                 ])
-        if TOP_SEARCH is true:
-            buttons.append([
-                InlineKeyboardButton("🎁 ᴍᴏᴠɪᴇ sᴜɢɢᴇsᴛɪᴏɴ's 🎁", callback_data='movie_seggestion')
-            ])
+        
         reply_markup = InlineKeyboardMarkup(buttons)
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
