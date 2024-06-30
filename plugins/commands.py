@@ -81,10 +81,6 @@ async def start(client, message):
                 buttons.append([
                     InlineKeyboardButton('🏡 ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🏡', callback_data='seeplans')
                 ])
-            if TOP_SEARCH is True:
-                buttons.append([
-                    InlineKeyboardButton("🎁 ᴍᴏᴠɪᴇ sᴜɢɢᴇsᴛɪᴏɴ's 🎁", callback_data='movie_suggestion')
-                ])
             reply_markup = InlineKeyboardMarkup(buttons)
             current_time = datetime.now(pytz.timezone(TIMEZONE))
             curr_time = current_time.hour        
@@ -148,10 +144,6 @@ async def start(client, message):
             if IS_VERIFY or IS_SHORTLINK is True:
                 buttons.append([
                     InlineKeyboardButton('🏡 ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🏡', callback_data='seeplans')
-                ])
-            if TOP_SEARCH is True:
-                buttons.append([
-                    InlineKeyboardButton("🎁 ᴍᴏᴠɪᴇ sᴜɢɢᴇsᴛɪᴏɴ's 🎁", callback_data='movie_suggestion')
                 ])
             reply_markup = InlineKeyboardMarkup(buttons)
             current_time = datetime.now(pytz.timezone(TIMEZONE))
@@ -218,31 +210,6 @@ async def start(client, message):
                 for admin in ADMINS:
                     await client.send_message(chat_id=REQST_CHANNEL, text=f"Sᴜᴄᴄᴇss ғᴜʟʟʏ reffral ᴛᴀsᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʙʏ ᴛʜɪs ᴜsᴇʀ:\n\nuser Nᴀᴍᴇ: {uss.mention}\n\nUsᴇʀ ɪᴅ: {uss.id}!")	
                 return
-        if message.command[1] == "movie_suggestion":
-            if TOP_SEARCH is True:
-                m = await message.reply_text(f"<b>Finding Movie's List For You...😘</b>")
-                top_messages = await db3.get_top_messages(30)
-
-                truncated_messages = set()  # Use a set instead of a list
-                for msg in top_messages:
-                    if len(msg) > 30:
-                        truncated_messages.add(msg[:30 - 3].lower().title() + "...")  # Convert to lowercase, capitalize and add to set
-                    else:
-                        truncated_messages.add(msg.lower().title())  # Convert to lowercase, capitalize and add to set
-
-                keyboard = []
-                for i in range(0, len(truncated_messages), 2):
-                    row = list(truncated_messages)[i:i+2]  # Convert set to list for indexing
-                    keyboard.append(row)
-    
-                reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True, placeholder="Most searches of the day")
-                sf=await message.reply_text(f"<b>ʜᴇʀᴇ ɪs ᴛʜʀ ʟɪsᴛ ᴏғ ᴍᴏᴠɪᴇ's ɴᴀᴍᴇ 👇👇</b>", reply_markup=reply_markup)
-                await m.delete()
-                await asyncio.sleep(60*60) 
-                await sf.delete()
-                return
-            else:
-                await message.reply("ᴛᴏᴘ sᴇᴀʀᴄʜᴇs ᴄᴜʀʀᴇɴᴛʟʏ ᴏғғ")
         data = message.command[1]
         try:
             pre, file_id = data.split('_', 1)
