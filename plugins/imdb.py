@@ -15,8 +15,8 @@ IMDB_TEMPLATE = """<b>
 ⭐ Rating: {rating} / 10
 🔉 Audio: #Hindi #English
 
-📕 Story:</b> {plot}
-"""
+📕 Story: {plot}
+</b>"""
 
 @Client.on_message(filters.command(["imdb", 'search']))
 async def imdb_search(client, message):
