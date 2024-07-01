@@ -1332,7 +1332,7 @@ InlineKeyboardButton('The Happy Hour 🇮🇳', url=f'http://t.me/The_Happy_Hour
         
         reply_markup = InlineKeyboardMarkup(buttons)
 
-await client.edit_message_media(
+        await client.edit_message_media(
             query.message.chat.id, 
             query.message.id,
             InputMediaPhoto(random.choice(PICS))
